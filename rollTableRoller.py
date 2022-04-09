@@ -1,9 +1,9 @@
 import re
 from random import randrange
 
-DEMO_TABLE = 'tables/examples/example.txt'
+DEMO_TABLE = 'examples/example.txt'
 
-def referenceParser(ref):
+def expressionParser(ref):
     stringValue = ref.group(0)[1:-1]
     # if dice roll
     diceRoll = re.search("d\d+", stringValue)
@@ -13,21 +13,20 @@ def referenceParser(ref):
     # otherwise return table value
     return rollTable(stringValue).strip()
 
-def rollParser(rollToParse):
-    keys = re.sub('\[.*?\]', lambda x: referenceParser(x) ,rollToParse)
+def lineParser(rollToParse):
+    keys = re.sub('\[.*?\]', lambda x: expressionParser(x) ,rollToParse)
     return keys
 
 def rollTable(tableName = DEMO_TABLE):
-    value = ""
-    f = open(tableName)
+    f = open("tables/" + tableName)
     num_lines = sum(1 for line in f)
     f.seek(0)
     line_rolled = randrange(num_lines)
     # print(f.readlines())
     line = f.readlines()[line_rolled]
-    line = rollParser(line)
+    line = lineParser(line)
     f.close()
     return line
 
-print(rollTable())
+print(rollTable("examples/example.txt"))
 # rollParser()
