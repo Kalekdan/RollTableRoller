@@ -34,5 +34,5 @@ def rollTable(tableName = DEMO_TABLE):
     f.close()
     return line
 
-print(rollTable("examples/example.txt"))
+print(rollTable("Deck of Many Things (22 Cards).txt"))
 # rollParser()
