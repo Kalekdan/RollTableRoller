@@ -3,7 +3,7 @@ from random import randrange
 
 DEMO_TABLE = 'examples/example.txt'
 
-def expressionParser(ref):
+def rollParser(ref):
     stringValue = ref.group(0)[1:-1]
     # if dice roll
     diceRoll = re.search("d\d+", stringValue)
@@ -13,8 +13,14 @@ def expressionParser(ref):
     # otherwise return table value
     return rollTable(stringValue).strip()
 
-def lineParser(rollToParse):
-    keys = re.sub('\[.*?\]', lambda x: expressionParser(x) ,rollToParse)
+def selectionParser(val):
+    stringValue = val.group(0)[1:-1]
+    choices = stringValue.split(",")
+    return choices[randrange(len(choices))]
+
+def lineParser(lineToParse):
+    keys = re.sub('\[.*?\]', lambda x: rollParser(x), lineToParse)
+    keys = re.sub('\{.*?\}', lambda x: selectionParser(x), keys)
     return keys
 
 def rollTable(tableName = DEMO_TABLE):

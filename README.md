@@ -14,10 +14,13 @@ If you want to include another table's roll in your roll, include it in the stri
 
 _NB: You can theoretically reference a table within itself, but this should usually be avoided to prevent maximum recursion dept errors._
 
+### Inline Selections
+For simpler selections, a choice can be embedded inline, using a list of possible outomces in the format `{rogue,cleric,wizard,bard}`. This will result in one of the values in the list being selected.
+
 ### Example Roll Table
 ```
-You see a pack of [d6] [example/creatures.txt]'s
-You are caught in a thunderstorm
-You find a [example/container.txt] filled with [d100] copper pieces and [d10] gold. 
+You see a pack of [d6] [examples/creatures.txt]'s
+You are caught in a {thunderstorm,tornado,volcanic eruption}
+You find a {chest,crate,satchel} filled with [d100] copper pieces and [d10] gold. 
 ```
 
