@@ -12,7 +12,7 @@ If you want to include a **random number** in your roll, include it in the strin
 
 If you want to include another table's roll in your roll, include it in the string in the format `[examples/creatures.txt]`. In this example, a second roll will be made on the creatures roll table, and the value will be substituted into your roll.
 
-_NB: You can theoretically reference a table within itself, but this should usually be avoided to prevent maximum recursion dept errors._
+_NB: You can theoretically reference a table within itself, but this should usually be avoided to prevent maximum recursion depth errors._
 
 ### Inline Selections
 For simpler selections, a choice can be embedded inline, using a list of possible outomces in the format `{rogue,cleric,wizard,bard}`. This will result in one of the values in the list being selected.
