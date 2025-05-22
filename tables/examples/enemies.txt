@@ -1,0 +1,2 @@
+Witch with a pet [examples/creatures.txt]
+Zombie with [d10] arms

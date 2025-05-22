@@ -1,3 +1,4 @@
 You see a pack of [d6] [examples/creatures.txt]'s
 You are caught in a {thunderstorm,tornado,volcanic eruption}
 You find a {chest,crate,satchel} filled with [d100] copper pieces and [d10] gold.
+You meet a [examples/enemies.txt]

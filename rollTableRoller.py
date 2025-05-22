@@ -6,7 +6,7 @@ DEMO_TABLE = 'examples/example.txt'
 def rollParser(ref):
     stringValue = ref.group(0)[1:-1]
     # if dice roll
-    diceRoll = re.search("d\d+", stringValue)
+    diceRoll = re.search(r"d\d+", stringValue)
     if diceRoll is not None:
         num = int(diceRoll.group(0)[1:])
         return str(randrange(1,num))
@@ -19,8 +19,8 @@ def selectionParser(val):
     return choices[randrange(len(choices))]
 
 def lineParser(lineToParse):
-    keys = re.sub('\[.*?\]', lambda x: rollParser(x), lineToParse)
-    keys = re.sub('\{.*?\}', lambda x: selectionParser(x), keys)
+    keys = re.sub(r'\[.*?\]', lambda x: rollParser(x), lineToParse)
+    keys = re.sub(r'\{.*?\}', lambda x: selectionParser(x), keys)
     return keys
 
 def rollTable(tableName = DEMO_TABLE):
@@ -34,5 +34,6 @@ def rollTable(tableName = DEMO_TABLE):
     f.close()
     return line
 
-print(rollTable("Deck of Many Things (22 Cards).txt"))
+# print(rollTable("Deck of Many Things (22 Cards).txt"))
 # rollParser()
+print(rollTable("examples/example.txt"))
